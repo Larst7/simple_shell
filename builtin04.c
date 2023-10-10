@@ -31,7 +31,7 @@ void unset_environ(vars_t *myvars)
 	{
 		errorPrint(myvars, NULL);
 		myvars->status = 127;
-		exit(myvars);
+		quit(myvars);
 	}
 	for (x = 0; myvars->env[x] != *key; x++)
 	{

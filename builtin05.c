@@ -17,9 +17,9 @@ void key_add(vars_t *myvars)
 	n_environ = malloc(sizeof(char *) * (y + 2));
 	if (n_environ == NULL)
 	{
-		myerror_print(myvars, NULL);
+		errorPrint(myvars, NULL);
 		myvars->status = 127;
-		exit(myvars);
+		quit(myvars);
 	}
 	for (y = 0; myvars->env[y] != NULL; y++)
 	{

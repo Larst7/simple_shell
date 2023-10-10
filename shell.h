@@ -62,11 +62,11 @@ char *uitoa(unsigned int mycount);
 
 char **environ_create(char **myenv);
 void environ_clear(char **myenv);
-ssize_t puts(char *strng);
+ssize_t my_puts(char *strng);
 char *dupstr(char *mystrtodup);
 
 int cmprstr(char *mystrcmp1, char *mystrcmp2);
-char *strcat(char *mystrc1, char *mystrc2);
+char *str_cat(char *mystrc1, char *mystrc2);
 unsigned int strlength(char *strng);
 
 char **my_token(char *buff, char *mydlimiter);
@@ -74,7 +74,7 @@ char **rellocat(char **myptr, size_t *mysize);
 char *strtoken(char *mystr, const char *mydelim);
 
 void (*checkbins(vars_t *myvars))(vars_t *myvars);
-void exit(vars_t *myvars);
+void quit(vars_t *myvars);
 void my_env(vars_t *myvars);
 
 void set_environ(vars_t *myvars);

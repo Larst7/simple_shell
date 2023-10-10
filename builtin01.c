@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * exit - Function to exit the program with a specified status code
+ * quit - Function to exit the program with a specified status code
  * @myvars: Variables containing command and status
  *
  * Return: void
  */
 
-void exit(vars_t *myvars)
+void quit(vars_t *myvars)
 {
 	int exit_status;
 
