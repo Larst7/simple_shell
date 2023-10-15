@@ -54,8 +54,8 @@ char *uitoa(unsigned int mycount)
 }
 
 /**
- * errorPrint - Print error messages to standard error.
- * @myvars: Pointer to struct of variables.
+ * errorPrint - This Prints error messages to standard error.
+ * @myvars: Pointer to structure of variables.
  * @mymsg: Message to print out.
  *
  * Return: void

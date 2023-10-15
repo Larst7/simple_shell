@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * checkbins - This program checks if the command is a builtin
+ * checkbins - This program verifies whether the command is an inherent function.
  * @myvars: variables
  *
  * Return: pointer to the function or NULL
@@ -16,16 +16,16 @@ void (*checkbins(vars_t *myvars))(vars_t *myvars)
 		{NULL, NULL}
 	};
 
-	unsigned int x = 0;
+	unsigned int y = 0;
 
-	while (check[x].name != NULL)
+	while (check[y].name != NULL)
 	{
-		if (cmprstr(myvars->av[0], check[x].name) == 0)
+		if (cmprstr(myvars->av[0], check[y].name) == 0)
 		{
-			check[x].f(myvars);
-			return (check[x].f);
+			check[y].f(myvars);
+			return (check[y].f);
 		}
-		x++;
+		y++;
 	}
 
 	return (NULL);

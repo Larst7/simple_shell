@@ -9,7 +9,7 @@
 int cwdExe(vars_t *myvars)
 {
 	struct stat buff;
-	pid_t c_pid;
+	pid_t l_pid;
 
 	if (stat(myvars->av[0], &buff) != 0)
 	{
@@ -24,13 +24,13 @@ int cwdExe(vars_t *myvars)
 		return (0);
 	}
 
-	c_pid = fork();
-	if (c_pid == -1)
+	l_pid = fork();
+	if (l_pid == -1)
 	{
 		errorPrint(myvars, NULL);
 		return (1);
 	}
-	if (c_pid == 0)
+	if (l_pid == 0)
 	{
 		if (execve(myvars->av[0], myvars->av, myvars->env) == -1)
 			errorPrint(myvars, NULL);

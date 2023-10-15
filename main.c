@@ -27,7 +27,7 @@ static void signal_handler(int uuv)
  * @argv: Array of arguments passed to main.
  * @environment: Array of environment variables.
  *
- * Return: 0 for successful execution, exit status on failure, or ? for undetermined.
+ * Return: 0 for successful, exit status on failure, or ? for undetermined.
  */
 int main(int argc __attribute__((unused)), char **argv, char **environment)
 {

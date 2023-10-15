@@ -9,7 +9,7 @@
 char *dupstr(char *mystrtodup)
 {
 	size_t length;
-	char *the_copy;
+	char *the_dup;
 	size_t l;
 
 	if (mystrtodup == NULL)
@@ -17,19 +17,19 @@ char *dupstr(char *mystrtodup)
 		return (NULL);
 	}
 
-	length = strlen(mystrtodup);
-	the_copy = malloc((length + 1) * sizeof(char));
-	if (the_copy == NULL)
+	length = strlength(mystrtodup);
+	the_dup = malloc((length + 1) * sizeof(char));
+	if (the_dup == NULL)
 	{
 		return (NULL);
 	}
 
 	for (l = 0; l <= length; l++)
 	{
-		the_copy[l] = mystrtodup[l];
+		the_dup[l] = mystrtodup[l];
 	}
 
-	return (the_copy);
+	return (the_dup);
 }
 
 /**
@@ -45,7 +45,7 @@ char *str_cat(char *mystrc1, char *mystrc2)
 {
 	size_t length1;
 	size_t length2;
-	size_t n_length;
+	size_t new_length;
 	size_t y;
 	size_t l;
 
@@ -56,11 +56,11 @@ char *str_cat(char *mystrc1, char *mystrc2)
 		return (NULL);
 	}
 
-	length1 = strlen(mystrc1);
-	length2 = strlen(mystrc2);
-	n_length = length1 + length2 + 2;
+	length1 = strlength(mystrc1);
+	length2 = strlength(mystrc2);
+	new_length = length1 + length2 + 2;
 
-	new_str = malloc(n_length * sizeof(char));
+	new_str = malloc(new_length * sizeof(char));
 	if (new_str == NULL)
 	{
 		return (NULL);
@@ -77,7 +77,7 @@ char *str_cat(char *mystrc1, char *mystrc2)
 		new_str[length1 + 1 + y] = mystrc2[y];
 	}
 
-	new_str[n_length - 1] = '\0';
+	new_str[new_length - 1] = '\0';
 
 	return (new_str);
 }

@@ -15,24 +15,24 @@
 char *value_add(char *mykey, char *myvalue)
 {
 	unsigned int length1, length2, a, b;
-	char *n_environ;
+	char *new_env;
 
 	length1 = strlength(mykey);
 	length2 = strlength(myvalue);
-	n_environ = malloc(sizeof(char) * (length1 + length2 + 2));
-	if (n_environ == NULL)
+	new_env = malloc(sizeof(char) * (length1 + length2 + 2));
+	if (new_env == NULL)
 	{
 		return (NULL);
 	}
 	for (a = 0; mykey[a] != '\0'; a++)
 	{
-		n_environ[a] = mykey[a];
+		new_env[a] = mykey[a];
 	}
-	n_environ[a] = '=';
+	new_env[a] = '=';
 	for (b = 0; myvalue[b] != '\0'; b++)
 	{
-		n_environ[a + 1 + b] = myvalue[b];
+		new_env[a + 1 + b] = myvalue[b];
 	}
-	n_environ[a + 1 + b] = '\0';
-	return (n_environ);
+	new_env[a + 1 + b] = '\0';
+	return (new_env);
 }

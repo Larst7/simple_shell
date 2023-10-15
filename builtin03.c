@@ -1,15 +1,15 @@
 #include "shell.h"
 
 /**
- * set_environ - Create a new environment variable or edit an existing one
- * @myvars: Pointer to a struct of variables
+ * set_environ - Establish a new environment variable or modify an existing one
+ * @myvars: Pointer to a structure containing variables
  *
- * Return: void
+ * Return: Absence of a value
  */
 void set_environ(vars_t *myvars)
 {
-	char **the_key;
-	char *v;
+	char **theKey;
+	char *w;
 
 	if (myvars->av[1] == NULL || myvars->av[2] == NULL)
 	{
@@ -17,16 +17,16 @@ void set_environ(vars_t *myvars)
 		myvars->status = 2;
 		return;
 	}
-	/*Find the key*/
-	the_key = mylock_find(myvars->env, myvars->av[1]);
-	if (the_key == NULL)
+	/*Locate the key*/
+	theKey = mylock_find(myvars->env, myvars->av[1]);
+	if (theKey == NULL)
 	{
 		key_add(myvars);
 	}
 	else
 	{
-		v = value_add(myvars->av[1], myvars->av[2]);
-		if (v == NULL)
+		w = value_add(myvars->av[1], myvars->av[2]);
+		if (w == NULL)
 		{
 			errorPrint(myvars, NULL);
 			free(myvars->buffer);
@@ -35,10 +35,10 @@ void set_environ(vars_t *myvars)
 			environ_clear(myvars->env);
 			exit(127);
 		}
-		/*Freeing the old value*/
-		free(*the_key);
-		*the_key = v;
+		/*Deallocating the old value*/
+		free(*theKey);
+		*theKey = w;
 	}
-	/*Setting the exit status*/
+	/*Assigning the exit status*/
 	myvars->status = 0;
 }

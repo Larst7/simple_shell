@@ -48,10 +48,10 @@ typedef struct my_builtins
 
 char **mylock_find(char **myenv, char *mykey);
 char *value_add(char *mykey, char *myvalue);
-int my_latoi(char *mystr);
+int _atoi(char *mystr);
 
 void pathCheck(vars_t *myvars);
-int pathExe(char *mycommand, vars_t *myvars);
+int pathExe(char *command, vars_t *myvars);
 char *pathFind(char **myenv);
 int cwdExe(vars_t *myvars);
 
@@ -69,9 +69,9 @@ int cmprstr(char *mystrcmp1, char *mystrcmp2);
 char *str_cat(char *mystrc1, char *mystrc2);
 unsigned int strlength(char *strng);
 
-char **my_token(char *buff, char *mydlimiter);
+char **my_token(char *buff, char *dlimiter);
 char **rellocat(char **myptr, size_t *mysize);
-char *strtoken(char *mystr, const char *mydelim);
+char *strtoken(char *mystr, const char *delim);
 
 void (*checkbins(vars_t *myvars))(vars_t *myvars);
 void quit(vars_t *myvars);

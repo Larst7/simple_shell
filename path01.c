@@ -2,8 +2,8 @@
 #include <string.h>
 
 /**
- * pathFind - Find the PATH variable.
- * @myenv: Array of environment variables.
+ * pathFind - Locate the Path variable
+ * @myenv: Array containing environment variables.
  *
  * Description:
  * This function searches for the PATH variable within the provided array
@@ -14,8 +14,8 @@
  */
 char *pathFind(char **myenv)
 {
-	char *path_variable = "PATH=";
-	size_t path_len = strlen(path_variable);
+	char *path_var = "PATH=";
+	size_t path_length = strlength(path_var);
 	size_t l;
 
 	if (myenv == NULL)
@@ -25,13 +25,13 @@ char *pathFind(char **myenv)
 	{
 		char *env_var = *myenv;
 
-		for (l = 0; env_var[l] != '\0' && l < path_len; l++)
+		for (l = 0; env_var[l] != '\0' && l < path_length; l++)
 		{
-			if (env_var[l] != path_variable[l])
+			if (env_var[l] != path_var[l])
 				break;
 		}
 
-		if (l == path_len)
+		if (l == path_length)
 		{
 			return (env_var);
 		}

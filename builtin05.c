@@ -2,7 +2,7 @@
 
 /**
  * key_add - Add a new environment variable
- * @myvars: Pointer to a struct of variables
+ * @myvars: Pointer to a structure containing variables.
  *
  * Return: void
  */
@@ -10,12 +10,12 @@
 void key_add(vars_t *myvars)
 {
 	unsigned int y;
-	char **n_environ;
+	char **new_env;
 
 	for (y = 0; myvars->env[y] != NULL; y++)
 		;
-	n_environ = malloc(sizeof(char *) * (y + 2));
-	if (n_environ == NULL)
+	new_env = malloc(sizeof(char *) * (y + 2));
+	if (new_env == NULL)
 	{
 		errorPrint(myvars, NULL);
 		myvars->status = 127;
@@ -23,20 +23,20 @@ void key_add(vars_t *myvars)
 	}
 	for (y = 0; myvars->env[y] != NULL; y++)
 	{
-		n_environ[y] = myvars->env[y];
+		new_env[y] = myvars->env[y];
 	}
-	n_environ[y] = value_add(myvars->av[1], myvars->av[2]);
-	if (n_environ[y] == NULL)
+	new_env[y] = value_add(myvars->av[1], myvars->av[2]);
+	if (new_env[y] == NULL)
 	{
 		errorPrint(myvars, NULL);
 		free(myvars->buffer);
 		free(myvars->commands);
 		free(myvars->av);
 		environ_clear(myvars->env);
-		free(n_environ);
+		free(new_env);
 		exit(127);
 	}
-	n_environ[y + 1] = NULL;
+	new_env[y + 1] = NULL;
 	free(myvars->env);
-	myvars->env = n_environ;
+	myvars->env = new_env;
 }

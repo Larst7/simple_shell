@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * rellocat - Reallocates a pointer to double the space.
- * @myptr: Pointer to the old array.
- * @mysize: Pointer to number of elements in the old array.
+ * rellocat - Adjusts the size of a pointer to twice its original space.
+ * @myptr: A pointer to the original array.
+ * @mysize: A pointer to the number of elements in the original array
  *
  * Description:
  * This function reallocates the memory for the old array, doubling its size,
@@ -11,32 +11,32 @@
  *
  * Return: Pointer to the new size array.
  */
-char **rellocat(char **myptr, size_t *mysize)
+char **rellocat(char **oldptr, size_t *oldsize)
 {
-	size_t new_size = (*mysize) * 2 + 10;
+	size_t new_size = (*oldsize) * 2 + 10;
 	size_t y;
 
 	char **new_ptr = malloc(sizeof(char *) * new_size);
 
 	if (new_ptr == NULL)
 	{
-		free(myptr);
+		free(oldptr);
 		return (NULL);
 	}
 
-	for (y = 0; y < (*mysize); y++)
+	for (y = 0; y < (*oldsize); y++)
 	{
-		new_ptr[y] = myptr[y];
+		new_ptr[y] = oldptr[y];
 	}
 
-	for (y = (*mysize); y < new_size; y++)
+	for (y = (*oldsize); y < new_size; y++)
 	{
 		new_ptr[y] = NULL;
 	}
 
-	*mysize = new_size;
+	*oldsize = new_size;
 
-	free(myptr);
+	free(oldptr);
 
 	return (new_ptr);
 }

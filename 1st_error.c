@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * puts4 - Print a string to standard error.
- * @mystr: String to print.
+ * puts4 - This function Prints a string to standard error.
+ * @mystr: A string to print to be printed to standard error.
  */
 void puts4(char *mystr)
 {

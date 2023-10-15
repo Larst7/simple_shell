@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * pathCheck - Check if the command is in the PATH.
+ * pathCheck - Verify is the command is present in the path
  * @myvars: Variables.
  *
  * Return: void.

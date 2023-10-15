@@ -1,8 +1,8 @@
 #include "shell.h"
 /**
- * checkMatch - Check if a character matches any in a string.
- * @c: Character to check.
- * @str: String to check.
+ * checkMatch - Verify if a character matches any within a string.
+ * @c: Character to verify.
+ * @str: String t overify.
  *
  * Description:
  * This function checks if a character matches any character in a given string.
@@ -25,9 +25,9 @@ unsigned int checkMatch(char c, const char *str)
 }
 
 /**
- * strtoken - Custom string token.
+ * strtoken - Custom string tokenization function.
  * @mystr: String to tokenize.
- * @mydelim: Delimiter to tokenize against.
+ * @delim: Delimiter to tokenize against.
  *
  * Description:
  * This function provides a custom implementation of the strtok function.
@@ -36,42 +36,42 @@ unsigned int checkMatch(char c, const char *str)
  *
  * Return: Pointer to the next token or NULL.
  */
-char *strtoken(char *mystr, const char *mydelim)
+char *strtoken(char *mystr, const char *delim)
 {
-	static char *start_token;
-	static char *token_next;
+	static char *start_tok;
+	static char *tokenext;
 	unsigned int y;
 
 	if (mystr != NULL)
-		token_next = mystr;
-	start_token = token_next;
-	if (start_token == NULL)
+		tokenext = mystr;
+	start_tok = tokenext;
+	if (start_tok == NULL)
 		return (NULL);
-	for (y = 0; token_next[y] != '\0'; y++)
+	for (y = 0; tokenext[y] != '\0'; y++)
 	{
-		if (checkMatch(token_next[y], mydelim) == 0)
+		if (checkMatch(tokenext[y], delim) == 0)
 		{
 			break;
 		}
 	}
 
-	start_token = token_next + y;
-	token_next = start_token;
-	for (y = 0; token_next[y] != '\0'; y++)
+	start_tok = tokenext + y;
+	tokenext = start_tok;
+	for (y = 0; tokenext[y] != '\0'; y++)
 	{
-		if (checkMatch(token_next[y], mydelim) == 1)
+		if (checkMatch(tokenext[y], delim) == 1)
 			break;
 	}
-	if (token_next[y] == '\0')
+	if (tokenext[y] == '\0')
 	{
-		token_next = NULL;
+		tokenext = NULL;
 	}
 	else
 	{
-		token_next[y] = '\0';
-		token_next = token_next + y + 1;
-		if (*token_next == '\0')
-			token_next = NULL;
+		tokenext[y] = '\0';
+		tokenext = tokenext + y + 1;
+		if (*tokenext == '\0')
+			tokenext = NULL;
 	}
-	return (start_token);
+	return (start_tok);
 }

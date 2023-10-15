@@ -2,10 +2,10 @@
 
 /**
  * mylock_find - Locate an environment variable
- * @myenv: Array of environment variables
- * @mykey: Environment variable to locate
+ * @myenv: Array containing environment variables.
+ * @mykey: Environment variable to be located
  *
- * Return: Pointer to the address of the environment variable
+ * Return: Pointer to the address of the specified environment variable.
  */
 char **mylock_find(char **myenv, char *mykey)
 {

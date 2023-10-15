@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * my_latoi - Convert a string into an integer.
+ * _atoi - Transform a string into an integer.
  * @mystr: String to convert.
  *
  * Description:
@@ -11,36 +11,36 @@
  *
  * Return: The integer value, or -1 if an error occurs.
  */
-int my_latoi(char *mystr)
+int _atoi(char *mystr)
 {
-	unsigned int a, digit;
-	int number = 0, n_test;
+	unsigned int a, a_digit;
+	int num = 0, new_test;
 
-	n_test = INT_MAX;
-	for (digit = 0; n_test != 0; digit++)
+	new_test = INT_MAX;
+	for (a_digit = 0; new_test != 0; a_digit++)
 	{
-		n_test /= 10;
+		new_test /= 10;
 	}
-	for (a = 0; mystr[a] != '\0' && a < digit; a++)
+	for (a = 0; mystr[a] != '\0' && a < a_digit; a++)
 	{
-		number *= 10;
+		num *= 10;
 		if (mystr[a] < '0' || mystr[a] > '9')
 		{
 			return (-1);
 		}
-		if ((a == digit - 1) && (mystr[a] - '0' > INT_MAX % 10))
+		if ((a == a_digit - 1) && (mystr[a] - '0' > INT_MAX % 10))
 		{
 			return (-1);
 		}
-		number += mystr[a] - '0';
-		if ((a == digit - 2) && (mystr[a + 1] != '\0') && (number > INT_MAX / 10))
+		num += mystr[a] - '0';
+		if ((a == a_digit - 2) && (mystr[a + 1] != '\0') && (num > INT_MAX / 10))
 		{
 			return (-1);
 		}
 	}
-	if (a > digit)
+	if (a > a_digit)
 	{
 		return (-1);
 	}
-	return (number);
+	return (num);
 }

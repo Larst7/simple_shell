@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * quit - Function to exit the program with a specified status code
- * @myvars: Variables containing command and status
+ * quit - Function to quit the program with a specified status code
+ * @myvars: Variables holding the command and status information.
  *
- * Return: void
+ * Return type: void.
  */
 
 void quit(vars_t *myvars)
@@ -13,7 +13,7 @@ void quit(vars_t *myvars)
 
 		while (cmprstr(myvars->av[0], "exit") == 0 && myvars->av[1] != NULL)
 	{
-		exit_status = my_latoi(myvars->av[1]);
+		exit_status = _atoi(myvars->av[1]);
 
 		if (exit_status == -1)
 		{

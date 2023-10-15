@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * environ_clear - Free the shell's environment.
- * @myenv: Shell's environment.
+ * environ_clear - Release the allocated memory for the shell's environment.
+ * @myenv: Shell environment.
  *
  * Description:
  * This function deallocates the memory used by the shell's environment.

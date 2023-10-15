@@ -8,7 +8,7 @@
  */
 void unset_environ(vars_t *myvars)
 {
-	char **key, **n_environ;
+	char **key, **new_env;
 
 	unsigned int x, y;
 
@@ -26,8 +26,8 @@ void unset_environ(vars_t *myvars)
 	}
 	for (x = 0; myvars->env[x] != NULL; x++)
 		;
-	n_environ = malloc(sizeof(char *) * x);
-	if (n_environ == NULL)
+	new_env = malloc(sizeof(char *) * x);
+	if (new_env == NULL)
 	{
 		errorPrint(myvars, NULL);
 		myvars->status = 127;
@@ -35,13 +35,13 @@ void unset_environ(vars_t *myvars)
 	}
 	for (x = 0; myvars->env[x] != *key; x++)
 	{
-		n_environ[x] = myvars->env[x];
+		new_env[x] = myvars->env[x];
 	}
 	for (y = x + 1; myvars->env[y] != NULL; y++, x++)
-		n_environ[x] = myvars->env[y];
-	n_environ[x] = NULL;
+		new_env[x] = myvars->env[y];
+	new_env[x] = NULL;
 	free(*key);
 	free(myvars->env);
-	myvars->env = n_environ;
+	myvars->env = new_env;
 	myvars->status = 0;
 }
