@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * checkbins - This program verifies whether the command is an inherent function.
+ * checkbins - Verifies whether the command is an inherent function.
  * @myvars: variables
  *
  * Return: pointer to the function or NULL

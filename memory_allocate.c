@@ -2,8 +2,8 @@
 
 /**
  * rellocat - Adjusts the size of a pointer to twice its original space.
- * @myptr: A pointer to the original array.
- * @mysize: A pointer to the number of elements in the original array
+ * @oldptr: A pointer to the original array.
+ * @oldsize: A pointer to the number of elements in the original array
  *
  * Description:
  * This function reallocates the memory for the old array, doubling its size,
